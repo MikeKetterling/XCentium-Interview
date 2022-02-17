@@ -32,7 +32,7 @@ function Login({setIsAuthenticated, setCurrentUser}) {
             .then(navigate("/home"))
           } else {
             resp.json().then((errors) => {
-              console.error(errors);
+              alert(errors.errors);
             });
           }
         });
