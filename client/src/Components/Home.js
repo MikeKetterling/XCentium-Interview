@@ -13,9 +13,9 @@ function Home({user, setIsAuthenticated, setCurrentUser}) {
               if (res.ok) {
                 setCurrentUser(null)
                 setIsAuthenticated(false)
-                .then(navigate("/"))
             }
         })
+        .then(navigate("/"))
     }
 
     return (
