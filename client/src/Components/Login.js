@@ -15,7 +15,8 @@ function Login() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
     
-      const handleSubmit = (e) => {
+    //post fetch for user login and validation
+    const handleSubmit = (e) => {
         e.preventDefault();
     
         const configObj = {
@@ -38,7 +39,7 @@ function Login() {
             });
           }
         });
-      };
+    };
 
 
     return (

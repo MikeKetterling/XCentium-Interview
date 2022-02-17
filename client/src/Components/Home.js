@@ -9,7 +9,7 @@ function Home() {
     const {setCurrentUser, setIsAuthenticated, currentUser} = useContext(AuthContext)
     const navigate = useNavigate();
 
-
+    //deleting session id for previous current user
     const handleLogout = () => {
         fetch('/logout', {method: "DELETE"})
         .then(res => {

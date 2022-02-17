@@ -7,7 +7,10 @@ import Home from './Home';
 import { AuthContext } from '../Context/authentication';
 
 function App() {
-  const {setCurrentUser, isAuthenticated, setIsAuthenticated} = useContext(AuthContext)
+  //state in context
+  const { setCurrentUser, isAuthenticated, setIsAuthenticated } = useContext(AuthContext)
+
+  //fetch for current user
   useEffect(() => {
     fetch("/me").then((resp) => {
       if (resp.ok) {
@@ -19,15 +22,14 @@ function App() {
     });
   }, []);
 
-console.log(isAuthenticated)
 
-  
   return (
     <div className="App">
       <Routes>
 
         <Route path="/" element={<Login />}/>
 
+        {/* if unauthorized home component does not exist */}
         {isAuthenticated ? <Route path="/home" element={<Home />}/> : null}
 
         <Route path="*" element={<NavLink exact to="/">Return to Login</NavLink>}/>
