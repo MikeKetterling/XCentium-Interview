@@ -26,9 +26,9 @@ function App() {
     <div className="App">
       <Routes>
 
-        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} setCurrentUser ={setCurrentUser}/>}/>
+        <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated} setCurrentUser ={setCurrentUser}/>}/>
 
-        <Route path="/home" element={<Home />}/>
+        <Route path="/home" element={<Home user={currentUser} setIsAuthenticated={setIsAuthenticated} setCurrentUser ={setCurrentUser} />}/>
 
       </Routes>
     </div>
