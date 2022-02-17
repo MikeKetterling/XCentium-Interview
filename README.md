@@ -1,6 +1,6 @@
 # README
 
-###XCentium Interview coding challenge.
+### XCentium Interview coding challenge.
 
 Rails backend located in App directory.
 
