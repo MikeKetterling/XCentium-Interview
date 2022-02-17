@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import { Button } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from '../Context/authentication';
 import logo from "../Media/mountain-banner.jpg"
 
 
-function Home({user, setIsAuthenticated, setCurrentUser}) {
+function Home() {
+    const {setCurrentUser, setIsAuthenticated, currentUser} = useContext(AuthContext)
     const navigate = useNavigate();
 
 
@@ -25,7 +28,7 @@ function Home({user, setIsAuthenticated, setCurrentUser}) {
         <div>
             <img src={logo} alt="wrench"/>
         </div>
-        <h1>Hello {user.name}!</h1>
+        <h1>Hello {currentUser.name}!</h1>
         
       </div>
     );

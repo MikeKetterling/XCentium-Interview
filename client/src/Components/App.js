@@ -1,15 +1,13 @@
-import logo from '../logo.svg';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {useEffect, useState} from "react";
-import {Route, Routes, useNavigate} from "react-router-dom"
+import {useContext, useEffect, useState} from "react";
+import {NavLink, Route, Routes, useNavigate} from "react-router-dom"
 import Login from './Login';
 import Home from './Home';
+import { AuthContext } from '../Context/authentication';
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [currentUser, setCurrentUser] = useState([]);
-
+  const {setCurrentUser, isAuthenticated, setIsAuthenticated} = useContext(AuthContext)
   useEffect(() => {
     fetch("/me").then((resp) => {
       if (resp.ok) {
@@ -21,15 +19,18 @@ function App() {
     });
   }, []);
 
+console.log(isAuthenticated)
 
+  
   return (
     <div className="App">
       <Routes>
 
-        <Route path="/" element={<Login setIsAuthenticated={setIsAuthenticated} setCurrentUser ={setCurrentUser}/>}/>
+        <Route path="/" element={<Login />}/>
 
-        <Route path="/home" element={<Home user={currentUser} setIsAuthenticated={setIsAuthenticated} setCurrentUser ={setCurrentUser} />}/>
+        {isAuthenticated ? <Route path="/home" element={<Home />}/> : null}
 
+        <Route path="*" element={<NavLink exact to="/">Return to Login</NavLink>}/>
       </Routes>
     </div>
   );

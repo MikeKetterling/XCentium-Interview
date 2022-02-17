@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {Form, Button, Col} from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from '../Context/authentication';
 
-function Login({setIsAuthenticated, setCurrentUser}) {
+function Login() {
+    const {setCurrentUser, setIsAuthenticated} = useContext(AuthContext)
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: "",
