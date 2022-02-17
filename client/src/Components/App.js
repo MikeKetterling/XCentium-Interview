@@ -1,7 +1,7 @@
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {useContext, useEffect, useState} from "react";
-import {NavLink, Route, Routes, useNavigate} from "react-router-dom"
+import {useContext, useEffect} from "react";
+import {NavLink, Route, Routes} from "react-router-dom"
 import Login from './Login';
 import Home from './Home';
 import { AuthContext } from '../Context/authentication';
